@@ -11,6 +11,9 @@ private $taskList;
 public function actionDefault($id)
 {
     $this->taskList = $this->context->createTasklists()->get($id);
+    if ($this->taskList === FALSE) {
+        $this->setView('notFound');
+    }
 }
 
 public function renderDefault($id)
