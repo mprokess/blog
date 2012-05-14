@@ -29,10 +29,33 @@
 </head>
 
 <body>
-	<script> document.body.className+=' js' </script>
 
-	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+	
+	<div id="header">
+    <div id="header-inner">
+        <div class="title"><a href="{link Homepage:}">Úkolníček</a></div>
+    </div>
+</div>
 
-	{include #content}
+<div id="container">
+    <div id="sidebar">
+        <div class="task-lists">
+            <ul>
+                <li n:foreach="$taskLists as $list"><a href="{link Task: $list->id}">{$list->title}</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content">
+        <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+
+        {include #content}
+    </div>
+
+    <div id="footer">
+
+    </div>
+</div>
+
 </body>
 </html>

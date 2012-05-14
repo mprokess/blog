@@ -8,5 +8,10 @@
  */
 abstract class BasePresenter extends Nette\Application\UI\Presenter
 {
+	
+public function beforeRender()
+{
+    $this->template->taskLists = $this->context->createTasklists()->order('title ASC');
+}
 
 }
